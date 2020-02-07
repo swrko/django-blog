@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+<h1>This is the list of blogs for author: {{ author.name }} {{ author.surname }}</h1>
+<ul>
+    {% for item in object_list %}
+
+        <li>{{ item.headline }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
