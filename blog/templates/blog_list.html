@@ -9,7 +9,7 @@
 <ul>
     {% for item in object_list %}
 
-        <li>{{ item.headline }}</li>
+        <li><a href="{% url 'blog' slug=item.headline %}">{{ item.headline }}</a></li>
     {% endfor %}
 </ul>
 </body>
