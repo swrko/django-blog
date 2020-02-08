@@ -47,7 +47,7 @@ class Author(models.Model):
         max_length=61,
         null=False,
         blank=False,
-        default=uuid.uuid4,
+        default=uuid.uuid4,   #vygeneruje nejaky unique kluc
     )
 
     def __str__(self):

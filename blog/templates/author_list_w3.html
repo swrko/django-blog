@@ -1,0 +1,45 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<title>Authors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<body>
+{% include 'menu_bootsrap4_w3.html' %}
+<div class="w3-container w3-grey" style="position:relative">
+    <a class="w3-btn w3-circle w3-xlarge w3-right w3-white" style="position:absolute;top:126px;right:42px;"><i>+</i></a>
+    <h1 class="w3-jumbo w3-text-grey" style="text-shadow:1px 1px 0 #444"> This is the list of Authors</h1>
+</div>
+
+<div class="w3-section w3-row-padding">
+    <div class="w3-twothird">
+        <div class="w3-card-4">
+            <div class="w3-display-container">
+                <div class="w3-display-bottomleft w3-container w3-xlarge w3-text-black"></div>
+            </div>
+            <div class="w3-container w3-light-grey">
+                <p>
+                <ul>
+                    {% for item in object_list %}
+
+                        <li><a href="{% url 'author_list' slug=item.slug %}">{{ item.name }} {{ item.surname }}</a></li>
+                    {% endfor %}
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="w3-container">
+    <p>{{ object.date }}</p>
+</footer>
+
+</body>
+</html>
