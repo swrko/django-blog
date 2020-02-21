@@ -20,6 +20,9 @@ class BlogListView(ListView):
     model = Blog
     template_name = 'blog_list_w3.html'
 
+    def get_queryset(self):
+        return super().get_queryset().filter(hidden=False)
+
 
 class AuthorBlogListView(ListView):
     model = Blog
@@ -28,7 +31,7 @@ class AuthorBlogListView(ListView):
     def get_queryset(self):
         slug = self.kwargs.get('slug')
         author = get_object_or_404(Author, slug=slug)
-        return author.blogs.all()
+        return author.blogs.filter(hidden=False).all()
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)

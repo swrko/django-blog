@@ -10,12 +10,22 @@ class Blog(models.Model):
         blank=True,
     )
     body = models.TextField(
-        null=False,
-        blank=True,
+        null=False,  # null v databaze
+        blank=True,  # dovolim prazdne policko vo formulari
     )
     date = models.DateField(
         null=False,
         auto_now_add=True,  # doplni datum upravy
+    )
+    hidden = models.BooleanField(
+        null=False,
+        blank=True,
+        default=True,  # moze byt callable -> volatelna funkcia
+    )
+    control_requested = models.BooleanField(
+        null=False,
+        blank=True,
+        default=False,
     )
 
     def __str__(self):
@@ -47,7 +57,7 @@ class Author(models.Model):
         max_length=61,
         null=False,
         blank=False,
-        default=uuid.uuid4,   #vygeneruje nejaky unique kluc
+        default=uuid.uuid4,  # vygeneruje nejaky unique kluc
     )
 
     def __str__(self):
