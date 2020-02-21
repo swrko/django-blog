@@ -66,7 +66,7 @@ class RegistrationView(FormView):
     success_url = '/login'
 
     def form_valid(self, form):
-        user_model = form.save(commit=False)  # neukladaj do databay ale ako formular
+        user_model = form.save(commit=False)  # neukladaj do databay ale ako formular; commit mi daj ako model a este neukladaj do dat
         user_model.set_password(form.cleaned_data.get('password'))
         user_model.save()
         return super().form_valid(form)

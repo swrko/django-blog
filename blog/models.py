@@ -62,3 +62,5 @@ class Author(models.Model):
 
     def __str__(self):
         return f'{self.name} {self.surname}'
+
+# spravit model pre spravu "notifikacia" pre usera a cez foreign key naviazat na usera
